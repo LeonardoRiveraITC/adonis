@@ -16,6 +16,9 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('users/register', ({request}) => {
-  return { mensaje: 'Hola academia ' }
-})
+
+Route.group(() =>{
+    Route.post('users/register', 'UserController.store');    
+}
+).prefix('/api/v1');
+
