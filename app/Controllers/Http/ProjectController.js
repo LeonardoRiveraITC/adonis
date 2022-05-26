@@ -1,6 +1,6 @@
 'use strict'
-
-const Project = use("App/Models/Project")
+const AuthService=use('App/Services/AuthSevice.js')
+const Project = use("App/Models/Project");
 
 class ProjectController {
    async index({auth}){
@@ -21,11 +21,7 @@ class ProjectController {
         const user = await auth.getUser();
         const {id}=params;
         const project  = await Project.find(id);
-        if(project.user_id != user.id){
-            return response.status(403).json({
-                message:"Unauthorized"
-            });
-        };
+        AuthService.verificarPermiso(project,user);
         await project.delete();
         return project;
     }
