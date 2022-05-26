@@ -1,10 +1,13 @@
 'use strict'
+const UnauthorizedException=use('App/Exceptions/UnauthorizedException');
+const NotFoundException=use('App/Exceptions/NotFoundException');
 class AuthService{
     verificarPermiso(recurso,user){
+        if(!recurso){
+            throw new NotFoundException;
+        }
         if(recurso.user_id != user.id){
-            return response.status(403).json({
-                message:"Unauthorized"
-            });
+            throw new UnauthorizedException();  
         };
     }
 }
