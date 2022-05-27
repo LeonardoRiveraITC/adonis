@@ -18,8 +18,11 @@ const Route = use('Route')
 
 
 Route.group(() =>{
+    //users
     Route.post('users/register', 'UserController.store');  
-    Route.post('users/login', 'UserController.login');  
+    Route.post('users/login', 'UserController.login');
+    Route.delete('users/:email','UserController.destroy');
+    //projects  
     Route.get('projects','ProjectController.index').middleware('auth'); 
     Route.post('projects','ProjectController.create').middleware('auth');  
     Route.delete('projects/:id','ProjectController.destroy').middleware('auth');  

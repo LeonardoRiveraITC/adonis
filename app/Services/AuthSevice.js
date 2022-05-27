@@ -4,11 +4,20 @@ const NotFoundException=use('App/Exceptions/NotFoundException');
 class AuthService{
     verificarPermiso(recurso,user){
         if(!recurso){
-            throw new NotFoundException;
+            throw new NotFoundException();
         }
-        if(recurso.user_id != user.id){
+        if(recurso.user_id != user.id ){
             throw new UnauthorizedException();  
         };
+    }
+    verificarUsuario(usuario,sesion){
+        if(!usuario){
+            throw new NotFoundException();
+        }
+            
+        if(usuario.id!=sesion.id){
+            throw new UnauthorizedException();  
+        }
     }
 }
 
