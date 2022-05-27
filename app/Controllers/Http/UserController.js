@@ -32,6 +32,17 @@ class UserController {
             });
         }
     }
+    async update({auth,params,request}){
+        const sesion =await auth.getUser();
+        const {email} =params;
+        const user = await User.findBy('email',email);
+        AuthSevice.verificarUsuario(user,sesion);
+        user.merge(request.only('username'));
+        user.merge(request.only('email'));
+        user.merge(request.only('password'));
+        await user.save();
+        return user;
+    }
 }
 
 module.exports = UserController
