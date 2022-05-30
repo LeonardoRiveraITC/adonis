@@ -1,1 +1,0 @@
-release: adonis migration:run 
