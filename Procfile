@@ -1,1 +1,1 @@
-release: node build/ace migration:run --force
+release: node build/adonis migration:run --force
