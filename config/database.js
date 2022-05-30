@@ -16,7 +16,7 @@ module.exports = {
   | interacting with SQL databases.
   |
   */
-  connection: Env.get('DB_CONNECTION', 'pg'),
+  connection: Env.get('DB_CONNECTION', 'sqlite'),
 
   /*
   |--------------------------------------------------------------------------
@@ -80,6 +80,7 @@ module.exports = {
       database: Env.get('DB_DATABASE', 'adonis')
     },
     ssl: {
+      require: true,
       rejectUnauthorized: false
     },
     debug: Env.get('DB_DEBUG', false)
