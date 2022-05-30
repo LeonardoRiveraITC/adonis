@@ -1,1 +1,1 @@
-release: node build/adonis migration:run --force
+release: adonis migration:run 
