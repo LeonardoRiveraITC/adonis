@@ -79,6 +79,9 @@ module.exports = {
       password: Env.get('DB_PASSWORD', ''),
       database: Env.get('DB_DATABASE', 'adonis')
     },
+    ssl: {
+      rejectUnauthorized: false
+    },
     debug: Env.get('DB_DEBUG', false)
   }
 }
