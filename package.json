@@ -16,7 +16,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@adonisjs/ace": "^5.1.0",
+    "@adonisjs/ace": "^5.0.8",
     "@adonisjs/assembler": "^5.7.0",
     "@adonisjs/auth": "^3.0.7",
     "@adonisjs/bodyparser": "~2.0.9",
